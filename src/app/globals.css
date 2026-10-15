@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Box sizing & Smoothness ────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark light;
+}
+
+/* ─── CSS Variables: Broadcast Sports Design Tokens ─────────────────────── */
+:root {
+  /* Warm off-white light mode (carefully designed, not just inverted) */
+  --color-bg: #F5F6F8;
+  --color-surface: #FFFFFF;
+  --color-surface-elevated: #ECEEF2;
+  --color-surface-hover: #E3E6EB;
+  --color-border-subtle: #E2E4E8;
+  --color-border-strong: #CBD0D8;
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94A3B8;
+  --color-accent: #E10600;
+}
+
+.dark {
+  /* Warm charcoal dark mode (clean TV sports graphics) */
+  --color-bg: #121316;
+  --color-surface: #1A1B1F;
+  --color-surface-elevated: #24252B;
+  --color-surface-hover: #2D2F37;
+  --color-border-subtle: #26272C;
+  --color-border-strong: #383A42;
+  --color-text-primary: #F4F4F6;
+  --color-text-secondary: #9CA3AF;
+  --color-text-muted: #6B7280;
+  --color-accent: #E10600;
+}
+
+/* ─── Base Body ──────────────────────────────────────────────────────────── */
+body {
+  color: var(--color-text-primary);
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.4);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.7);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.7);
+}
+
+/* ─── Range Slider (Broadcast Timeline Scrubber) ─────────────────────────── */
+input[type="range"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--color-border-strong);
+  cursor: pointer;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  background: #E10600;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  background: #E10600;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+/* ─── Numeric Tabular ────────────────────────────────────────────────────── */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── Reduced motion safety ──────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
